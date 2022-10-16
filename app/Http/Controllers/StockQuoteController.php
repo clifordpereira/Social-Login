@@ -14,7 +14,7 @@ class StockQuoteController extends Controller
      */
     public function index()
     {
-        $stockQuotes = StockQuote::all();
+        $stockQuotes = StockQuote::where('user_id', auth()->id())->get();
         return view('/stock-quotes', compact('stockQuotes'));
     }
 
@@ -26,6 +26,7 @@ class StockQuoteController extends Controller
      */
     public function store(Request $request)
     {
-        return StockQuote::create($request->all());
+        return StockQuote::create($request->all() + ['user_id'=>auth()->id()]);
+        // if symbol should not be duplicated, updateOrCreate() method can be used
     }
 }

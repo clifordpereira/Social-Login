@@ -31,11 +31,14 @@
                     low: response.data["Global Quote"]["04. low"],
                     price: response.data["Global Quote"]["05. price"],
                 })
+                .then(() => {
+                    location.href = "/stock_quotes";  
+                })
             })
             .catch(function (error) {
                 console.log(error);
-            });
+            });            
+        }  
             
-        }        
     </script>
 </x-app-layout>

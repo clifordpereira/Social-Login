@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('stock_quotes', function (Blueprint $table) {
-            $table->id();
+            $table->id();            
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('symbol')->nullable();
-            $table->decimal('high', $precision = 10, $scale = 4)->default(0);
-            $table->decimal('low', $precision = 10, $scale = 4)->default(0);
-            $table->decimal('price', $precision = 10, $scale = 4)->default(0);
+            $table->decimal('high', 10, 4)->default(0);
+            $table->decimal('low', 10, 4)->default(0);
+            $table->decimal('price', 10, 4)->default(0);
             $table->timestamps();
         });
     }
