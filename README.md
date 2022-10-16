@@ -1,6 +1,11 @@
 ## Requirement
 
 - PHP v8.1+
+- Facebook developer account. Kindly add these parameters in .env file  
+  - FB_CLIENT_ID="your-fb-client-id"
+  - FB_CLIENT_SECRET="your-fb-client-secret"
+  - FB_REDIRECT="http://localhost:8000/auth/callback"
+
 
 ## Installation
 
