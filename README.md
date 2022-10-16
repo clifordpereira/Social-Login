@@ -26,3 +26,12 @@
 - On the landing dashboard page, enter a stock symbol and click the button - 'Get Price'.
 
 - The stock quotes that you queried so far will be listed.
+
+
+## Main files Used
+
+- resources\views\welcome.blade.php
+- App\Http\Controllers\SocialLoginController
+
+- resources\views\dashboard.blade.php
+- App\Http\Controllers\StockQuoteController

@@ -11,13 +11,28 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Enter a stock symbol (eg: AMZN)
                         <input type="text" id="stock_symbol" name="stock_symbol">
-                        <button class="btn btn-warning" onclick="getStockQuote(stock_symbol.value)">Get Price</button>
+                        <button class="btn btn-warning" onclick="getStockQuoteFromVantage(stock_symbol.value)">Get Price</button>
+                </div>
+                <div id="continer">
+                    <table border="1">
+                        <thead><tr><th>Symbol</th><th>high</th><th>low</th><th>price</th></tr></thead>
+                        <tbody id="tableBody">
+                            @foreach ($stockQuotes as $stockQuote)
+                            <tr>
+                                <td> {{ $stockQuote->symbol }}</td>
+                                <td> {{ $stockQuote->high }}</td>
+                                <td> {{ $stockQuote->low }}</td>
+                                <td> {{ $stockQuote->price }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        function getStockQuote(stock_symbol) {
+        function getStockQuoteFromVantage(stock_symbol) {
             if ("" == stock_symbol) {
                 alert("please enter stock symbol");
                 return false;
@@ -31,14 +46,31 @@
                     low: response.data["Global Quote"]["04. low"],
                     price: response.data["Global Quote"]["05. price"],
                 })
-                .then(() => {
-                    location.href = "/stock_quotes";  
+                .then((response) => {
+                    getStockQuotesFromDB();
                 })
             })
             .catch(function (error) {
                 console.log(error);
             });            
-        }  
+        }
+
+        function getStockQuotesFromDB() {
+            axios.get('/stock_quotes')
+                .then(response => {                    
+                let tempString = "";
+                response.data.forEach(element => {
+                    tempString += `<tr>
+                        <th>${element['symbol']}</th>
+                        <th>${element['high']}</th>
+                        <th>${element['low']}</th>
+                        <th>${element['price']}</th>
+                        </tr>`;
+                });
+                document.getElementById('tableBody').innerHTML=tempString;
+            })
+            .catch(error => console.error(error));  
+        }
             
     </script>
 </x-app-layout>

@@ -19,10 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::get('/auth/redirect', [SocialLoginController::class, 'authRedirect'])->name('facebook-login');
 Route::get('/auth/callback', [SocialLoginController::class, 'authCallBack']);
 
@@ -30,6 +26,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::controller(StockQuoteController::class)->group(function () {
         Route::get('/stock_quotes', 'index');
         Route::post('/stock_quotes/store', 'store');
+        Route::get('/dashboard', 'dashboard')->name('dashboard');
     });
 });
 

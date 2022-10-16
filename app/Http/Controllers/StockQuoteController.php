@@ -14,8 +14,18 @@ class StockQuoteController extends Controller
      */
     public function index()
     {
+        return StockQuote::where('user_id', auth()->id())->get();
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function dashboard()
+    {
         $stockQuotes = StockQuote::where('user_id', auth()->id())->get();
-        return view('/stock-quotes', compact('stockQuotes'));
+        return view('/dashboard', compact('stockQuotes'));
     }
 
     /**
