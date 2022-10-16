@@ -1,3 +1,6 @@
+## Requirement
+
+- PHP v8.1+
 
 ## Installation
 
@@ -18,8 +21,8 @@
 
 - Click 'Login with Facebook'. This will redirect to facebook login page.
 
-- Enter your facebook mail-id and password. You will be redirected back loged in to the current system.
+- Enter your facebook mail-id and password. You will be redirected back and loged in to the current system.
 
 - On the landing dashboard page, enter a stock symbol and click the button - 'Get Price'.
 
-- The stock quotes that you queried will be listed.
+- The stock quotes that you queried so far will be listed.

@@ -26,16 +26,11 @@ Route::get('/dashboard', function () {
 Route::get('/auth/redirect', [SocialLoginController::class, 'authRedirect'])->name('facebook-login');
 Route::get('/auth/callback', [SocialLoginController::class, 'authCallBack']);
 
-Route::controller(StockQuoteController::class)->group(function () {
-    Route::get('/stock_quotes', 'index');
-    Route::post('/stock_quotes/store', 'store');
-});
-
 Route::middleware(['auth', 'verified'])->group(function () {
-});
-
-Route::post('/test', function(){
-    return "testing post";
+    Route::controller(StockQuoteController::class)->group(function () {
+        Route::get('/stock_quotes', 'index');
+        Route::post('/stock_quotes/store', 'store');
+    });
 });
 
 require __DIR__.'/auth.php';
