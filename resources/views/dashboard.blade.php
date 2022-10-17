@@ -19,10 +19,10 @@
                         <tbody id="tableBody">
                             @foreach ($stockQuotes as $stockQuote)
                             <tr>
-                                <td> {{ $stockQuote->symbol }}</td>
-                                <td> {{ $stockQuote->high }}</td>
-                                <td> {{ $stockQuote->low }}</td>
-                                <td> {{ $stockQuote->price }}</td>
+                                <td> {{ $stockQuote->symbol }} </td>
+                                <td> {{ $stockQuote->high }} </td>
+                                <td> {{ $stockQuote->low }} </td>
+                                <td> {{ $stockQuote->price }} </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -57,7 +57,7 @@
 
         function getStockQuotesFromDB() {
             axios.get('/stock_quotes')
-                .then(response => {                    
+            .then(response => {                    
                 let tempString = "";
                 response.data.forEach(element => {
                     tempString += `<tr>

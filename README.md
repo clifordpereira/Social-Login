@@ -35,8 +35,8 @@
 
 ## Main files Used
 
-- resources\views\welcome.blade.php
-- App\Http\Controllers\SocialLoginController
+- [resources\views\welcome.blade.php](https://github.com/clifordpereira/Social-Login/blob/main/resources/views/welcome.blade.php)
+- [App\Http\Controllers\SocialLoginController](https://github.com/clifordpereira/Social-Login/blob/main/app/Http/Controllers/SocialLoginController.php)
 
-- resources\views\dashboard.blade.php
-- App\Http\Controllers\StockQuoteController
+- [resources\views\dashboard.blade.php](https://github.com/clifordpereira/Social-Login/blob/main/resources/views/dashboard.blade.php)
+- [App\Http\Controllers\StockQuoteController](https://github.com/clifordpereira/Social-Login/blob/main/app/Http/Controllers/StockQuoteController.php)
